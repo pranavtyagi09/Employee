@@ -1,5 +1,5 @@
 import React ,{useEffect, useState} from 'react';
-import { Table, Space } from 'antd';
+import { Table, Space, Button } from 'antd';
 
 import axios from 'axios';
 
@@ -9,9 +9,20 @@ const EmpList = () => {
     const [data, setData] = useState();
 
     useEffect(()=>{
-            axios.get('https://procom-interview-employee-test.azurewebsites.net/Employee')
-            .then(response => setData(response.data));
+          axios.get('https://procom-interview-employee-test.azurewebsites.net/Employee')
+          .then(response => setData(response.data));
     },[])
+
+    const deleteEmp = (id) => {
+      if(id){
+      axios.delete(`https://procom-interview-employee-test.azurewebsites.net/Employee/${id}`)
+        .then(() => window.alert('Delete successful'))
+        .then(()=>{
+          axios.get('https://procom-interview-employee-test.azurewebsites.net/Employee')
+        .then(response => setData(response.data));
+        })}
+        
+    }
 
     const columns = [
         {
@@ -45,6 +56,7 @@ const EmpList = () => {
           render: (text, record) => (
             <Space size="middle">
                 <a href={`/update?id=${record.id}`} >Update</a>
+                <Button type="link" onClick={()=>{deleteEmp(record.id)}} >Delete</Button>
             </Space>
           ),
         },
