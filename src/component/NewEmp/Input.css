@@ -1,0 +1,21 @@
+.container{
+    padding: 5em;
+}
+
+.container h1{
+    text-align: center;
+}
+
+.ant-col-4 {
+    flex: auto !important;
+    max-width: 100% !important;
+}
+
+/* .ant-form-item-label {
+
+    text-align: left !important;
+} */
+
+.ant-col-14 {
+    max-width: 100% !important; 
+}

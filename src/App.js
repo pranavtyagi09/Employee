@@ -1,24 +1,46 @@
-import logo from './logo.svg';
 import './App.css';
+import NewEmpForm from './component/NewEmp/NewEmpForm';
+import EmpList from './component/EmpList/EmpList';
+import UpdateEmp from './component/UpdateEmp/UpdateEmp'
+import 'antd/dist/antd.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import { Menu } from 'antd';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Router>
+      <div>
+        <nav>
+          <Menu  mode="horizontal">
+            <Menu.Item >
+              <Link to="/">Add Employee</Link>
+            </Menu.Item>
+            <Menu.Item >
+              <Link to="/list">Employee List</Link>
+            </Menu.Item>
+            <Menu.Item >
+              <Link to="/update">Update Employee</Link>
+            </Menu.Item>
+          </Menu>
+        </nav>
+        <Switch>
+        <Route path="/update">
+            <UpdateEmp />
+          </Route>
+          <Route path="/list">
+            <EmpList />
+          </Route>
+          <Route path="/">
+            <NewEmpForm/>
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
