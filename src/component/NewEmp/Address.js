@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button, Space, InputNumber } from 'antd';
+import { Form, Input, Button, Space } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 
 
@@ -16,7 +16,7 @@ const Address = ({incCounter, decCounter}) => {
                 </Form.Item>
                 <Form.Item
                 {...field}
-                label='streetName'
+                label='Street Name'
                 name={[field.name,'streetName']}
                 fieldKey={[field.fieldKey, 'streetName']}
                 rules={[
@@ -41,19 +41,6 @@ const Address = ({incCounter, decCounter}) => {
                 >
                     <Input />
                 </Form.Item>
-
-                {/* <Form.Item
-                label='apartmentNumber'
-                name={[field.name, 'apartmentNumber']}
-                fieldKey={[field.fieldKey, 'apartmentNumber']}
-                rules={[
-                    {
-                    message: `Please input your apartmentNumber!`,
-                    },
-                ]}
-                >
-                    <InputNumber />
-                </Form.Item> */}
 
                 <Form.Item
                 label='State'

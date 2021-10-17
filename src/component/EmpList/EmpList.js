@@ -1,5 +1,5 @@
 import React ,{useEffect, useState} from 'react';
-import { Table, Tag, Space } from 'antd';
+import { Table, Space } from 'antd';
 
 import axios from 'axios';
 
@@ -45,18 +45,16 @@ const EmpList = () => {
           render: (text, record) => (
             <Space size="middle">
                 <a href={`/update?id=${record.id}`} >Update</a>
-              {/* <a>Update {record.firstName}</a> */}
-              {/* <a>Delete</a> */}
             </Space>
           ),
         },
       ];
 
     return (
-        <>
-            <h1>This is Emp List</h1>
+        <div className="container">
+            <h1>Employee List</h1>
             <Table columns={columns} dataSource={data} />
-        </>
+        </div>
     );
 }
 export default EmpList;

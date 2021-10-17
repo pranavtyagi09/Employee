@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Form, Input, Button  } from 'antd';
+import React from 'react';
 import './Input.css';
-import Employee from './Employee'
 import EmpForm from './EmpForm';
 
 const NewEmpForm = () => {

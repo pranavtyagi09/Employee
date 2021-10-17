@@ -23,9 +23,6 @@ function App() {
             <Menu.Item >
               <Link to="/list">Employee List</Link>
             </Menu.Item>
-            <Menu.Item >
-              <Link to="/update">Update Employee</Link>
-            </Menu.Item>
           </Menu>
         </nav>
         <Switch>

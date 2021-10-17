@@ -13,22 +13,29 @@ const EmpForm = ({ selectedEmp }) => {
 
     useEffect(()=>{
         if (selectedEmp && selectedEmp.id){
-            debugger
+            
             axios.put(`https://procom-interview-employee-test.azurewebsites.net/Employee/${selectedEmp.id}`, data)
              .then(response => console.log('res',response))
-            //  .then(()=>{window.location.href = `${window.location.href}list`;})
+             .then(()=>{window.alert("Employee update successful");})
+             .then(()=>{window.location.href = '/list'})
         }
         
         else if (data){
          axios.post('https://procom-interview-employee-test.azurewebsites.net/Employee', data)
              .then(response => console.log('res',response))
+             .then(()=>{window.alert("Employee added successful");})
              .then(()=>{window.location.href = `${window.location.href}list`;})}
     },[data])
 
 
     const onFinish = (values) => {
         console.log('Success:', values);
-        setData(values);
+        if (selectedEmp){
+          setData({id:selectedEmp.id, ...values});
+        }
+        else{
+          setData(values);
+        }
       };
 
     
