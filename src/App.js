@@ -17,10 +17,10 @@ function App() {
       <div>
         <nav>
           <Menu  mode="horizontal">
-            <Menu.Item >
-              <Link to="/">Add Employee</Link>
+            <Menu.Item key="1" >
+              <Link to="/" >Add Employee</Link>
             </Menu.Item>
-            <Menu.Item >
+            <Menu.Item key="2" >
               <Link to="/list">Employee List</Link>
             </Menu.Item>
           </Menu>
